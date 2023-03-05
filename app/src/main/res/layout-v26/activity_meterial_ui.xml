@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="RedundantNamespace">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/firstnameinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/first_name"
+            android:padding="25dp"
+            android:textColorHint="@color/design_default_color_primary"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:counterOverflowTextColor="@color/design_default_color_secondary"
+            app:counterTextColor="@color/design_default_color_primary"
+            app:endIconMode="clear_text"
+            app:helperText="Required*"
+            app:helperTextTextColor="@color/design_default_color_error"
+            app:prefixText="Mr."
+            app:startIconDrawable="@drawable/baseline_account_circle_24">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:textColor="@color/design_default_color_error"
+                android:textColorHint="#757575"
+                app:textInputLayoutFocusedRectEnabled="true"
+                tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastnameinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/last_name"
+            android:padding="25dp"
+            android:textColorHint="@color/design_default_color_primary"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:endIconMode="clear_text"
+            app:helperText="Required*"
+            app:helperTextTextColor="@color/design_default_color_error"
+            app:startIconDrawable="@drawable/baseline_account_circle_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"
+                android:textColor="@color/design_default_color_error"
+                app:textInputLayoutFocusedRectEnabled="true"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mobilenoinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/mobile_no"
+            android:padding="25dp"
+            android:textColorHint="@color/design_default_color_primary"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:endIconMode="clear_text"
+            app:helperText="Required*"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/design_default_color_error"
+            app:hintTextColor="@color/design_default_color_primary_variant"
+            app:prefixText="+91"
+            app:prefixTextColor="@color/design_default_color_secondary"
+            app:startIconDrawable="@drawable/baseline_phone_iphone_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColor="@color/design_default_color_error"
+                android:textColorHint="#757575"
+                app:textInputLayoutFocusedRectEnabled="true"
+                tools:ignore="TextContrastCheck,VisualLintTextFieldSize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/altmobilenoinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/alternative_mobile_no"
+            android:keyboardNavigationCluster="true"
+            android:padding="25dp"
+            android:textColorHint="@color/design_default_color_primary"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:counterTextColor="@color/design_default_color_primary_variant"
+            app:endIconMode="clear_text"
+            app:helperText="Required*"
+            app:helperTextTextColor="@color/design_default_color_error"
+            app:prefixText="+91"
+            app:prefixTextColor="@color/design_default_color_secondary"
+            app:startIconDrawable="@drawable/baseline_phone_iphone_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textColor="@color/design_default_color_error"
+                app:textInputLayoutFocusedRectEnabled="true"
+                tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/e_mail"
+            android:padding="25dp"
+            android:textColorHint="@color/design_default_color_primary"
+            app:counterEnabled="true"
+            app:counterMaxLength="32"
+            app:counterTextColor="@color/purple_500"
+            app:endIconMode="clear_text"
+            app:errorEnabled="true"
+            app:errorTextColor="@color/design_default_color_error"
+            app:helperText="Required*"
+            app:helperTextTextColor="@color/design_default_color_error"
+            app:startIconDrawable="@drawable/baseline_contact_mail_24">
+
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/design_default_color_error"
+                app:textInputLayoutFocusedRectEnabled="true"
+                tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:text="@string/gender"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/rbgroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="25dp">
+
+            <RadioButton
+                android:id="@+id/rbbtnmale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/male"
+                android:textColor="@color/design_default_color_primary_variant"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbbtnfemale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/female"
+                android:textColor="@color/design_default_color_primary_variant"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbbtncustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/custom"
+                android:textColor="@color/design_default_color_primary_variant"
+                tools:ignore="VisualLintButtonSize" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="25dp"
+            android:text="@string/hobbies"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/cb1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="@string/programming"
+            android:textColor="@color/design_default_color_primary_variant"
+            tools:ignore="VisualLintButtonSize" />
+
+        <CheckBox
+            android:id="@+id/cb2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="@string/playing_cricket"
+            android:textColor="@color/design_default_color_primary_variant"
+            tools:ignore="VisualLintButtonSize" />
+
+        <CheckBox
+            android:id="@+id/cb3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="@string/watching_movies"
+            android:textColor="@color/design_default_color_primary_variant"
+            tools:ignore="VisualLintButtonSize" />
+
+        <CheckBox
+            android:id="@+id/cb4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="@string/travling"
+            android:textColor="@color/design_default_color_primary_variant"
+            tools:ignore="VisualLintButtonSize" />
+
+        <CheckBox
+            android:id="@+id/cb5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:text="@string/run_bissness"
+            android:textColor="@color/design_default_color_primary_variant"
+            tools:ignore="VisualLintButtonSize" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnsubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="205sp"
+            android:baselineAligned="false"
+            android:filterTouchesWhenObscured="true"
+            android:text="@string/submit"
+            android:textColor="@color/design_default_color_background" />
+
+        <TextView
+            android:id="@+id/tv_fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="25sp"
+            android:layout_marginStart="25dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_mobno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="25sp"
+            android:layout_marginStart="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_altno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="25sp"
+            android:layout_marginStart="25dp"/>
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="25sp"
+            android:layout_marginStart="25dp"/>
+
+        <TextView
+            android:id="@+id/tv_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="25sp"
+            android:layout_marginStart="25dp"
+            />
+
+
+
+
+    </LinearLayout>
+</ScrollView>
