@@ -165,29 +165,33 @@
             android:id="@+id/rbgroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="25dp">
+            android:padding="25dp"
+            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rbbtnmale"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/male"
+                android:padding="20sp"
                 android:textColor="@color/design_default_color_primary_variant"
                 tools:ignore="VisualLintButtonSize" />
 
             <RadioButton
                 android:id="@+id/rbbtnfemale"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/female"
+                android:padding="20sp"
                 android:textColor="@color/design_default_color_primary_variant"
                 tools:ignore="VisualLintButtonSize" />
 
             <RadioButton
                 android:id="@+id/rbbtncustom"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/custom"
+                android:padding="20sp"
                 android:textColor="@color/design_default_color_primary_variant"
                 tools:ignore="VisualLintButtonSize" />
 
@@ -293,13 +297,16 @@
             android:id="@+id/tv_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="25sp"
             android:layout_marginStart="25dp"
-            />
+            android:textColor="@color/design_default_color_error"
+            android:textSize="25sp" />
 
-
-
-
+        <TextView
+            android:id="@+id/tv_hobbies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:textColor="@color/design_default_color_error"
+            android:textSize="25sp" />
     </LinearLayout>
 </ScrollView>
