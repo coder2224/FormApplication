@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
         setContentView(binding.root)
         binding.btnsubmit.setOnClickListener(this)
         binding.rbgroup.setOnCheckedChangeListener(this)
+        binding.cb1.setOnCheckedChangeListener(this)
 
 
     }
@@ -79,8 +80,28 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        binding.cb1.isChecked
+        when(isChecked){
+            binding.cb1.isChecked->{
+              Toast.makeText(this,"First",Toast.LENGTH_LONG).show()
+            }
+            binding.cb2.isChecked->{
+                Toast.makeText(this,"Second",Toast.LENGTH_LONG).show()
+            }
+            binding.cb3.isChecked->{
+                Toast.makeText(this,"Third",Toast.LENGTH_LONG).show()
+            }
+            binding.cb4.isChecked->{
+                Toast.makeText(this,"Four",Toast.LENGTH_LONG).show()
+            }
+            binding.cb5.isChecked->{
+                Toast.makeText(this,"Five",Toast.LENGTH_LONG).show()
+            }
+            else -> {
+                Toast.makeText(this,"Please Select Correct Option",Toast.LENGTH_LONG).show()
+            }
+        }
     }
+
 
     //-----------------------------------------------------------------------------------------------
 
