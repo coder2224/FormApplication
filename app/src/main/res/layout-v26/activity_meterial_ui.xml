@@ -13,11 +13,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/firstnameinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/first_name"
-            android:padding="25dp"
+            android:padding="5dp"
+            android:layout_marginTop="15dp"
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="20"
@@ -43,11 +44,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/lastnameinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/last_name"
-            android:padding="25dp"
+            android:padding="5dp"
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="20"
@@ -68,11 +69,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/mobilenoinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/mobile_no"
-            android:padding="25dp"
+            android:padding="5dp"
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="10"
@@ -98,12 +99,12 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/altmobilenoinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/alternative_mobile_no"
             android:keyboardNavigationCluster="true"
-            android:padding="25dp"
+            android:padding="5dp"
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="10"
@@ -127,11 +128,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailinput"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/e_mail"
-            android:padding="25dp"
+            android:padding="5dp"
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="32"
@@ -156,16 +157,18 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="25dp"
+            android:padding="5dp"
             android:text="@string/gender"
             android:textColor="@color/design_default_color_error"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:filterTouchesWhenObscured="true"
+            android:textStyle="bold"/>
 
         <RadioGroup
             android:id="@+id/rbgroup"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="25dp"
+            android:padding="5dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -173,7 +176,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/male"
-                android:padding="20sp"
+                android:padding="5sp"
+                android:layout_marginStart="30sp"
+                android:textStyle="bold"
+                android:shadowColor="@color/design_default_color_primary"
                 android:textColor="@color/design_default_color_primary_variant"
                 tools:ignore="VisualLintButtonSize" />
 
@@ -182,7 +188,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/female"
-                android:padding="20sp"
+                android:padding="5sp"
+                android:textStyle="bold"
+                android:layout_marginStart="30sp"
                 android:textColor="@color/design_default_color_primary_variant"
                 tools:ignore="VisualLintButtonSize" />
 
@@ -191,7 +199,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/custom"
-                android:padding="20sp"
+                android:padding="5sp"
+                android:layout_marginStart="30sp"
+                android:textStyle="bold"
                 android:textColor="@color/design_default_color_primary_variant"
                 tools:ignore="VisualLintButtonSize" />
 
@@ -200,7 +210,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="25dp"
+            android:padding="5dp"
+            android:textStyle="bold"
             android:text="@string/hobbies"
             android:textColor="@color/design_default_color_error"
             android:textSize="20sp" />
@@ -255,58 +266,13 @@
             android:id="@+id/btnsubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="205sp"
+            android:layout_marginStart="180sp"
             android:baselineAligned="false"
             android:filterTouchesWhenObscured="true"
             android:text="@string/submit"
-            android:textColor="@color/design_default_color_background" />
+            android:textColor="@color/design_default_color_background"
+             />
 
-        <TextView
-            android:id="@+id/tv_fullname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="25sp"
-            android:layout_marginStart="25dp"
-            />
 
-        <TextView
-            android:id="@+id/tv_mobno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="25sp"
-            android:layout_marginStart="25dp"/>
-
-        <TextView
-            android:id="@+id/tv_altno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="25sp"
-            android:layout_marginStart="25dp"/>
-        <TextView
-            android:id="@+id/tv_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="25sp"
-            android:layout_marginStart="25dp"/>
-
-        <TextView
-            android:id="@+id/tv_gender"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="25sp" />
-
-        <TextView
-            android:id="@+id/tv_hobbies"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:textColor="@color/design_default_color_error"
-            android:textSize="25sp" />
     </LinearLayout>
 </ScrollView>

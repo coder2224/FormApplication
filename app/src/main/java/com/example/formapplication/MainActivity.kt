@@ -1,6 +1,7 @@
 package com.example.formapplication
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.CompoundButton
@@ -8,9 +9,12 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.formapplication.databinding.ActivityMeterialUiBinding
+import com.example.formapplication.util.Keys
 
 class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, View.OnClickListener,
     CompoundButton.OnCheckedChangeListener {
+    // Here I Declare Private Variables
+    //-------------------------------------------------------------------------------------------------
     private lateinit var  binding:ActivityMeterialUiBinding
     private lateinit var fname:String
     private lateinit var lname:String
@@ -18,7 +22,8 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
     private lateinit var altmobileno:String
     private lateinit var email:String
     private lateinit var gender:String
-
+    private var arrayList=ArrayList<String>()
+    //---------------------------------------------------------------------------------------------------
 
     //--------------------------------------------------------------------------------------------------
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,14 +33,18 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
         binding.btnsubmit.setOnClickListener(this)
         binding.rbgroup.setOnCheckedChangeListener(this)
         binding.cb1.setOnCheckedChangeListener(this)
+        binding.cb2.setOnCheckedChangeListener(this)
+        binding.cb3.setOnCheckedChangeListener(this)
+        binding.cb4.setOnCheckedChangeListener(this)
+        binding.cb5.setOnCheckedChangeListener(this)
 
 
     }
+    //--------------------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------------------------
 
-//---------------------------------------------------------------------------------------------------
     // Here I Use RadioButton Properties
+    //---------------------------------------------------------------------------------------------------
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
         when(checkedId){
             R.id.rbbtnmale->{
@@ -53,62 +62,116 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
         }
 
     }
+    //---------------------------------------------------------------------------------------------------
 
-// Here I Use Button Properties
+    // Here I Use Button Properties
     //-----------------------------------------------------------------------------------------------
     @SuppressLint("SuspiciousIndentation")
     override fun onClick(v: View?) {
-       fname=binding.firstnameinput.editText?.text.toString()
+        fname=binding.firstnameinput.editText?.text.toString()
         lname=binding.lastnameinput.editText?.text.toString()
         mobileno=binding.mobilenoinput.editText?.text.toString()
         altmobileno=binding.altmobilenoinput.editText?.text.toString()
-        email=binding.emailinput.editText?.text.toString()
-
-        binding.cb2.setOnCheckedChangeListener(this)
-        if(validationOnNumbers(mobileno,altmobileno)) {
-            " Name :    $fname $lname".also { binding.tvFullname.text = it }
-            " Mobile No :  $mobileno".also { binding.tvMobno.text = it }
-            " Alternative Mobile No : $altmobileno".also { binding.tvAltno.text = it }
-            " E-Mail : $email".also { binding.tvEmail.text = it }
-            " Gender : $gender".also { binding.tvGender.text = it }
-        }
-    else{
-        Toast.makeText(this," Please Enter Alternative Number Different ",Toast.LENGTH_LONG).show()
+        if(checkMobileNumber(mobileno,altmobileno)) {
+            email = binding.emailinput.editText?.text.toString()
+            val intent = Intent(this, SecondActivity::class.java)
+            val bundle = Bundle()
+            bundle.putString(Keys.FIRSTNAME, fname)
+            bundle.putString(Keys.LASTNAME, lname)
+            bundle.putString(Keys.MOBILENUMBER, mobileno)
+            bundle.putString(Keys.ALTMOBILENUMBER, altmobileno)
+            bundle.putString(Keys.Email, email)
+            bundle.putString(Keys.GENDER, gender)
+            bundle.putStringArrayList(Keys.ARRAYLISTOBJECT, this.arrayList.toString())
+            intent.putExtra(Keys.BUNDLEKEY, bundle)
+            startActivity(intent)
+        }else{
+            Toast.makeText(this," Please Enter Alternative Mobile Number Different ",Toast.LENGTH_LONG).show()
             return
         }
 
+
     }
 
-    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        when(isChecked){
-            binding.cb1.isChecked->{
-              Toast.makeText(this,"First",Toast.LENGTH_LONG).show()
-            }
-            binding.cb2.isChecked->{
-                Toast.makeText(this,"Second",Toast.LENGTH_LONG).show()
-            }
-            binding.cb3.isChecked->{
-                Toast.makeText(this,"Third",Toast.LENGTH_LONG).show()
-            }
-            binding.cb4.isChecked->{
-                Toast.makeText(this,"Four",Toast.LENGTH_LONG).show()
-            }
-            binding.cb5.isChecked->{
-                Toast.makeText(this,"Five",Toast.LENGTH_LONG).show()
-            }
-            else -> {
-                Toast.makeText(this,"Please Select Correct Option",Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+    private fun checkMobileNumber(mobileno: String, altmobileno: String):Boolean {
+        return mobileno!=altmobileno
 
+    }
 
     //-----------------------------------------------------------------------------------------------
 
+
+
+
     //  Here i  Will Use CheckBox Property
+    //------------------------------------------------------------------------------------------------
+    override fun onCheckedChanged(view: CompoundButton?, isCheked: Boolean) {
+            when(view?.id){
+                R.id.cb1 ->{
+                    if(binding.cb1.isChecked){
+                        arrayList.add(binding.cb1.text.toString())
+
+                    }
+                    else
+                    {
+                        arrayList.remove(binding.cb1.text.toString())
+                    }
+
+                }
+                R.id.cb2 ->{
+                    if(binding.cb2.isChecked){
+                        arrayList.add(binding.cb2.text.toString())
+
+                    }
+                    else
+                    {
+                        arrayList.remove(binding.cb2.text.toString())
+
+                    }
+
+                }
+                R.id.cb3 ->{
+                    if(binding.cb3.isChecked){
+                        arrayList.add(binding.cb3.text.toString())
+
+                    }
+                    else
+                    {
+                        arrayList.remove(binding.cb3.text.toString())
+
+                    }
+
+                }
+                R.id.cb4 ->{
+                    if (binding.cb4.isChecked) {
+                        arrayList.add(binding.cb4.text.toString())
+
+                    } else {
+                        arrayList.remove(binding.cb4.text.toString())
+
+
+                    }
+
+                }
+                R.id.cb5 ->{
+                    if(binding.cb5.isChecked){
+                        arrayList.add(binding.cb5.text.toString())
+
+                    }
+                    else
+                    {
+                        arrayList.remove(binding.cb5.text.toString())
+
+                    }
+
+                }
+            }
     }
-fun validationOnNumbers(m1:String,m2:String):Boolean{
-    return m1!=m2
+    //------------------------------------------------------------------------------------------------------------
+    }
+
+private fun Bundle.putStringArrayList(arraylistobject: String, toString: String) {
+
 }
 
 
