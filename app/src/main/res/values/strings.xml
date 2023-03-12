@@ -9,14 +9,15 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="custom">Custom</string>
-    <string name="programming"> -Programming</string>
-    <string name="playing_cricket"> -Playing Cricket</string>
-    <string name="watching_movies"> -Watching Movies</string>
-    <string name="travling"> -Travling</string>
-    <string name="run_bissness">Run Bissness</string>
+    <string name="programming"> Programming </string>
+    <string name="playing_cricket"> Playing Cricket </string>
+    <string name="watching_movies"> Watching Movies </string>
+    <string name="travling"> Travling </string>
+    <string name="run_bissness"> Run Bissness </string>
     <string name="hobbies">      Hobbies :  </string>
     <string name="gender">       Gender :  </string>
     <string name="submit">Submit</string>
+    <string name="all_information_is_below">All Information is Below</string>
 
 
 </resources>

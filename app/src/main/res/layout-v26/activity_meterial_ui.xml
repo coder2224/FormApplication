@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
+<androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="3sp"
+    android:layout_marginEnd="3sp"
+    android:layout_marginTop="3sp"
+    android:layout_marginBottom="3sp"
+    android:background="@color/white"
+    app:cardCornerRadius="20dp"
+    app:cardUseCompatPadding="true"
+    app:cardElevation="@dimen/cardview_default_radius">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,6 +29,8 @@
             android:layout_height="wrap_content"
             android:hint="@string/first_name"
             android:padding="5dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_marginTop="15dp"
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
@@ -52,6 +65,8 @@
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="20"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:endIconMode="clear_text"
             app:helperText="Required*"
             app:helperTextTextColor="@color/design_default_color_error"
@@ -77,6 +92,8 @@
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="10"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:endIconMode="clear_text"
             app:helperText="Required*"
             app:helperTextEnabled="true"
@@ -108,6 +125,8 @@
             android:textColorHint="@color/design_default_color_primary"
             app:counterEnabled="true"
             app:counterMaxLength="10"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:counterTextColor="@color/design_default_color_primary_variant"
             app:endIconMode="clear_text"
             app:helperText="Required*"
@@ -139,6 +158,8 @@
             app:counterTextColor="@color/purple_500"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
             app:errorTextColor="@color/design_default_color_error"
             app:helperText="Required*"
             app:helperTextTextColor="@color/design_default_color_error"
@@ -198,12 +219,12 @@
                 android:id="@+id/rbbtncustom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/custom"
-                android:padding="5sp"
                 android:layout_marginStart="30sp"
-                android:textStyle="bold"
+                android:padding="5sp"
+                android:text="@string/custom"
                 android:textColor="@color/design_default_color_primary_variant"
-                tools:ignore="VisualLintButtonSize" />
+                android:textStyle="bold"
+                tools:ignore="VisualLintButtonSize,TouchTargetSizeCheck" />
 
         </RadioGroup>
 
@@ -275,4 +296,5 @@
 
 
     </LinearLayout>
+</androidx.cardview.widget.CardView>
 </ScrollView>

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.formapplication.databinding.ActivityMeterialUiBinding
 import com.example.formapplication.util.Keys
 
+
 class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, View.OnClickListener,
     CompoundButton.OnCheckedChangeListener {
     // Here I Declare Private Variables
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
     private lateinit var fname:String
     private lateinit var lname:String
     private lateinit var mobileno:String
-    private lateinit var altmobileno:String
+    private lateinit var altmobno:String
     private lateinit var email:String
     private lateinit var gender:String
     private var arrayList=ArrayList<String>()
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
     // Here I Use RadioButton Properties
     //---------------------------------------------------------------------------------------------------
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
-        when(checkedId){
+        when(group?.checkedRadioButtonId){
             R.id.rbbtnmale->{
                 gender=binding.rbbtnmale.text.toString()
             }
@@ -67,34 +68,59 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
     // Here I Use Button Properties
     //-----------------------------------------------------------------------------------------------
     @SuppressLint("SuspiciousIndentation")
-    override fun onClick(v: View?) {
-        fname=binding.firstnameinput.editText?.text.toString()
-        lname=binding.lastnameinput.editText?.text.toString()
-        mobileno=binding.mobilenoinput.editText?.text.toString()
-        altmobileno=binding.altmobilenoinput.editText?.text.toString()
-        if(checkMobileNumber(mobileno,altmobileno)) {
-            email = binding.emailinput.editText?.text.toString()
-            val intent = Intent(this, SecondActivity::class.java)
-            val bundle = Bundle()
-            bundle.putString(Keys.FIRSTNAME, fname)
-            bundle.putString(Keys.LASTNAME, lname)
-            bundle.putString(Keys.MOBILENUMBER, mobileno)
-            bundle.putString(Keys.ALTMOBILENUMBER, altmobileno)
-            bundle.putString(Keys.Email, email)
-            bundle.putString(Keys.GENDER, gender)
-            bundle.putStringArrayList(Keys.ARRAYLISTOBJECT, this.arrayList.toString())
-            intent.putExtra(Keys.BUNDLEKEY, bundle)
-            startActivity(intent)
-        }else{
-            Toast.makeText(this," Please Enter Alternative Mobile Number Different ",Toast.LENGTH_LONG).show()
-            return
+    override fun onClick(view: View?) {
+        when(view?.id) {
+
+            R.id.btnsubmit -> {
+
+                if (binding.firstnameinput.editText?.text.toString()
+                        .isEmpty() && binding.lastnameinput.editText?.text.toString().isEmpty()
+                    && binding.mobilenoinput.editText?.text.toString()
+                        .isEmpty() && binding.altmobilenoinput.editText?.text.toString().isEmpty()
+                    && binding.emailinput.editText?.text.toString().isEmpty()) {
+                    Toast.makeText(this, "Please Fill All Field", Toast.LENGTH_LONG).show()
+                } else if(binding.firstnameinput.editText?.text.toString().isEmpty()){
+                   Toast.makeText(this," Please Enter First Name ",Toast.LENGTH_LONG).show()
+                    binding.firstnameinput.requestFocus()
+                } else if(binding.lastnameinput.editText?.text.toString().isEmpty()){
+                    Toast.makeText(this," Please Enter Last Name ",Toast.LENGTH_LONG).show()
+                    binding.lastnameinput.requestFocus()
+                } else if(binding.mobilenoinput.editText?.text.toString().isEmpty()){
+                    Toast.makeText(this," Please Enter Mobile Number ",Toast.LENGTH_LONG).show()
+                    binding.mobilenoinput.requestFocus()
+                } else if(binding.altmobilenoinput.editText?.text.toString().isEmpty()){
+                    Toast.makeText(this," Please Enter Alternative Mobile Number ",Toast.LENGTH_LONG).show()
+                    binding.altmobilenoinput.requestFocus()
+                } else if(binding.emailinput.editText?.text.toString().isEmpty()){
+                    Toast.makeText(this," Please Enter Email ",Toast.LENGTH_LONG).show()
+                    binding.emailinput.requestFocus()
+                } else if(checkMobileNumber(binding.mobilenoinput.editText?.text.toString(),binding.altmobilenoinput.editText?.text.toString())){
+                    Toast.makeText(this," Please Enter Alternative Number Different ",Toast.LENGTH_LONG).show()
+                } else{
+                    fname=binding.firstnameinput.editText?.text.toString()
+                    lname=binding.lastnameinput.editText?.text.toString()
+                    mobileno=binding.mobilenoinput.editText?.text.toString()
+                    altmobno=binding.altmobilenoinput.editText?.text.toString()
+                    email=binding.emailinput.editText?.text.toString()
+
+                    val intent=Intent(this,SecondActivity::class.java)
+                    val bundle=Bundle()
+                    bundle.putString(Keys.FIRSTNAME,fname)
+                    bundle.putString(Keys.LASTNAME,lname)
+                    bundle.putString(Keys.MOBILENUMBER,mobileno)
+                    bundle.putString(Keys.ALTMOBILENUMBER,altmobno)
+                    bundle.putString(Keys.Email,email)
+                    bundle.putString(Keys.GENDER,gender)
+                    bundle.putStringArrayList(Keys.ARRAYLISTOBJECT,arrayList)
+                    intent.putExtra(Keys.BUNDLEKEY,bundle)
+                    startActivity(intent)
+                }
+            }
         }
-
-
     }
 
     private fun checkMobileNumber(mobileno: String, altmobileno: String):Boolean {
-        return mobileno!=altmobileno
+        return mobileno==altmobileno
 
     }
 
@@ -169,10 +195,6 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
     }
     //------------------------------------------------------------------------------------------------------------
     }
-
-private fun Bundle.putStringArrayList(arraylistobject: String, toString: String) {
-
-}
 
 
 
