@@ -1,7 +1,5 @@
 package com.example.formapplication.util
 
-import android.provider.ContactsContract.CommonDataKinds.Email
-
 class Keys {
     companion object{
         val FIRSTNAME="fname"

@@ -1,5 +1,7 @@
+//---------------------------------------------This is Package Which Contain My Application Entire Files---------------------------------------------------------------------
 package com.example.formapplication
 
+//---------------------------------------------This is Place of import classes,package etc-----------------------------------------------------------------------------------
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -11,11 +13,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.formapplication.databinding.ActivityMeterialUiBinding
 import com.example.formapplication.util.Keys
 
-
+//----------------------------------------------This is Main Class. Which Inherite Super Class Properties---------------------------------------------------------------------
 class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, View.OnClickListener,
     CompoundButton.OnCheckedChangeListener {
     // Here I Declare Private Variables
-    //-------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private lateinit var  binding:ActivityMeterialUiBinding
     private lateinit var fname:String
     private lateinit var lname:String
@@ -24,9 +26,11 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
     private lateinit var email:String
     private lateinit var gender:String
     private var arrayList=ArrayList<String>()
-    //---------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    //--------------------------------------------------------------------------------------------------
+
+    // this is My Activity First Stage. Here My Activity will be Create to Show up on Moniter
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMeterialUiBinding.inflate(layoutInflater)
@@ -41,11 +45,11 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
 
 
     }
-    //--------------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
     // Here I Use RadioButton Properties
-    //---------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
         when(group?.checkedRadioButtonId){
             R.id.rbbtnmale->{
@@ -63,10 +67,10 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
         }
 
     }
-    //---------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
     // Here I Use Button Properties
-    //-----------------------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
     @SuppressLint("SuspiciousIndentation")
     override fun onClick(view: View?) {
         when(view?.id) {
@@ -97,12 +101,12 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
                 } else if(checkMobileNumber(binding.mobilenoinput.editText?.text.toString(),binding.altmobilenoinput.editText?.text.toString())){
                     Toast.makeText(this," Please Enter Alternative Number Different ",Toast.LENGTH_LONG).show()
                 } else{
-                    fname=binding.firstnameinput.editText?.text.toString()
-                    lname=binding.lastnameinput.editText?.text.toString()
-                    mobileno=binding.mobilenoinput.editText?.text.toString()
-                    altmobno=binding.altmobilenoinput.editText?.text.toString()
-                    email=binding.emailinput.editText?.text.toString()
 
+                        fname = binding.firstnameinput.editText?.text.toString()
+                        lname = binding.lastnameinput.editText?.text.toString()
+                        mobileno = binding.mobilenoinput.editText?.text.toString()
+                        altmobno = binding.altmobilenoinput.editText?.text.toString()
+                        email = binding.emailinput.editText?.text.toString()
                     val intent=Intent(this,SecondActivity::class.java)
                     val bundle=Bundle()
                     bundle.putString(Keys.FIRSTNAME,fname)
@@ -118,19 +122,23 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
             }
         }
     }
+//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+    // This is Private function and this will be Check mobile number Same or not
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     private fun checkMobileNumber(mobileno: String, altmobileno: String):Boolean {
         return mobileno==altmobileno
 
     }
 
-    //-----------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
     //  Here i  Will Use CheckBox Property
-    //------------------------------------------------------------------------------------------------
+    //------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     override fun onCheckedChanged(view: CompoundButton?, isCheked: Boolean) {
             when(view?.id){
                 R.id.cb1 ->{
@@ -193,8 +201,9 @@ class MainActivity : AppCompatActivity(), RadioGroup.OnCheckedChangeListener, Vi
                 }
             }
     }
-    //------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     }
+//----------------------------------------------------------- Here End of My Main Activity Class-------------------------------------------------------------------------------
 
 
 
